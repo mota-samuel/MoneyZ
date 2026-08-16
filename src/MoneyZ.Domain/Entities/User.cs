@@ -1,6 +1,5 @@
 ﻿using MoneyZ.Domain.Enums;
 using MoneyZ.Domain.Objects;
-using System.Security.Principal;
 
 namespace MoneyZ.Domain.Entities;
 public sealed class User
