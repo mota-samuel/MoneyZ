@@ -15,7 +15,7 @@ public sealed class Expense
 
     private Expense() { }
 
-    public static Expense NewExpense(
+    public static Expense Create(
         Guid userId,
         string description,
         Dinheiro valor,
@@ -63,6 +63,4 @@ public sealed class Expense
             NumTelephone = numeroTelefone
         };
     }
-}
-
 }
