@@ -36,4 +36,33 @@ public sealed class Expense
             NumTelephone = numTelephone
         };
     }
+
+    /// <summary>
+    /// Reconstrói um gasto a partir do estado já persistido, preservando Id e Data originais
+    /// (Criar não deve ser usado para isso, pois sempre gera um novo Id e usa DateTime.UtcNow).
+    /// </summary>
+    public static Expense Reidratar(
+        Guid id,
+        Guid usuarioId,
+        DateTime data,
+        string descricao,
+        Dinheiro valor,
+        CategoricoGasto categoria,
+        Payment formaPagamento,
+        string numeroTelefone)
+    {
+        return new Expense
+        {
+            ID = id,
+            UserID = usuarioId,
+            Date = data,
+            Description = descricao,
+            Valor = valor,
+            Categoria = categoria,
+            Payment = formaPagamento,
+            NumTelephone = numeroTelefone
+        };
+    }
+}
+
 }
