@@ -5,7 +5,7 @@ public sealed record Dinheiro
 
     private Dinheiro(decimal valor) => Valor = Math.Round(valor, 2);
 
-    public static Dinheiro Criar(decimal valor)
+    public static Dinheiro Create(decimal valor)
     {
         if(valor < 0)
             throw new ArgumentException("O valor não pode ser negativo.", nameof(valor));

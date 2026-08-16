@@ -10,7 +10,7 @@ public sealed partial record Telefone
 
     private Telefone(string numero) => Numero = numero;
     
-    public static Telefone Criar(string raw)
+    public static Telefone Create(string raw)
     {
         if (string.IsNullOrWhiteSpace(raw))
         {

@@ -5,5 +5,6 @@ public enum Payment
     Credito,
     Debito,
     Dinheiro,
-    PIX
+    PIX,
+    Others
 }
