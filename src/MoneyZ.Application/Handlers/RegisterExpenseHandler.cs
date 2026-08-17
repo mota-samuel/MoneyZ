@@ -31,7 +31,7 @@ public  sealed class RegisterExpenseHandler
 
         var valor = Dinheiro.Create(comand.Amount);
         var categoria = CategoricoGasto.Resolver(comand.Description);
-        var paymentMethod = PaymentMethod(comand.PaymentMethod);
+        var paymentMethod = MoneyZ.Application.Helpers.Helpers.PaymentHelper(comand.PaymentMethod);
         var expense = Expense.Create(user.ID, comand.Description,valor,categoria,paymentMethod,telephone.Numero);
 
         await _expenseRepository.Add(expense, ct);
@@ -41,15 +41,4 @@ public  sealed class RegisterExpenseHandler
         return $"✅ Gasto registrado!\n\n{categoria.Nome} > {categoria.SubCategoria}\n{valor} via {paymentMethod}";
     }
 
-    private Payment PaymentMethod(string paymentMethod)
-    {
-        return paymentMethod.ToLower() switch
-        {
-            "dinheiro" => Payment.Dinheiro,
-            "credito" => Payment.Credito,
-            "debito" => Payment.Debito,
-            "PIX" => Payment.PIX,
-            _ => Payment.Others
-        };
-    }
 }

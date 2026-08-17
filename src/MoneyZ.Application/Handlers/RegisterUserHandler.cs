@@ -31,7 +31,7 @@ public sealed class RegisterUserHandler
         return user.StatusCadastro switch
         {
             StatusCadastro.AguardandoNome => await ProcessName(user, message, ct),
-            StatusCadastro.AguardandoRenda => await ProcessName(user, message, ct),
+            StatusCadastro.AguardandoRenda => await ProcessIncome(user, message, ct),
             StatusCadastro.Ativo => "Seu cadastro está completo! Você já pode registrar seus gastos.",
             _ => "Status de cadastro desconhecido. Por favor, tente novamente ou entre em contato com o suporte."
         };
