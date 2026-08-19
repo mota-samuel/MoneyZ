@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using MoneyZ.Application.Commands;
+using MoneyZ.Application.Helper;
 using MoneyZ.Domain.Entities;
 using MoneyZ.Domain.Enums;
 using MoneyZ.Domain.Interfaces.Repository;
@@ -31,7 +32,7 @@ public  sealed class RegisterExpenseHandler
 
         var valor = Dinheiro.Create(comand.Amount);
         var categoria = CategoricoGasto.Resolver(comand.Description);
-        var paymentMethod = MoneyZ.Application.Helpers.Helpers.PaymentHelper(comand.PaymentMethod);
+        var paymentMethod = Helpers.PaymentHelper(comand.PaymentMethod);
         var expense = Expense.Create(user.ID, comand.Description,valor,categoria,paymentMethod,telephone.Numero);
 
         await _expenseRepository.Add(expense, ct);

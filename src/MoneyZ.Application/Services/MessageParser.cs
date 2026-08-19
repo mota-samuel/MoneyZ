@@ -1,4 +1,5 @@
-﻿using MoneyZ.Application.Services.Command;
+﻿using MoneyZ.Application.Helper;
+using MoneyZ.Application.Services.Command;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -22,7 +23,7 @@ public sealed partial class MessageParser
             return null; // Falha ao converter o valor para decimal
         }
 
-        return new ParseExpense(description, value, MoneyZ.Application.Helpers.Helpers.PaymentHelper(paymentMethod));
+        return new ParseExpense(description, value, Helpers.PaymentHelper(paymentMethod));
     }
 
 

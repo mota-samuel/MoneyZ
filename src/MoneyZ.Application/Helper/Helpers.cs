@@ -1,6 +1,6 @@
 ﻿using MoneyZ.Domain.Enums;
 
-namespace MoneyZ.Application.Helpers;
+namespace MoneyZ.Application.Helper;
 public static class Helpers
 {
     public static Payment PaymentHelper(string paymentMethod)
