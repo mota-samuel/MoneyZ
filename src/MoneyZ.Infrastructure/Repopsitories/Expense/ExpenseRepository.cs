@@ -121,5 +121,4 @@ public class ExpenseRepository : IExpenseRepository
         public string NumTelephone { get; init; } = default!;
     }
 
-
 }
